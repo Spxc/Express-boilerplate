@@ -27,13 +27,11 @@ const client = new MongoClient(process.env.MONGO_HOST);
 const db = client.db(process.env.MONGO_DB);
 
 /**
- * Functions used to access the database, including the the most basic ones
- * Each function returns a promise
+ * Insert a new document
  * @param {*} table Name of the collection
  * @param {*} document Document to insert
- * @returns new Promise
+ * @returns Object
  */
-
 const insertOne = async (table, document) => {
     return new Promise(async resolve => {
         const collection = db.collection(table);
@@ -43,10 +41,10 @@ const insertOne = async (table, document) => {
 }
 
 /**
- * 
+ * find multiple documents
  * @param {*} table Name of the collection
  * @param {*} match JSON match query
- * @returns 
+ * @returns Array
  */
 const find = async (table, match) => {
     return new Promise(async resolve => {
@@ -57,10 +55,10 @@ const find = async (table, match) => {
 }
 
 /**
- * 
+ * Find a document based of _id
  * @param {*} table Name of the collection
  * @param {*} id Document _id
- * @returns 
+ * @returns Object
  */
 const findOne = async (table, id) => {
     return new Promise(async resolve => {
@@ -71,10 +69,10 @@ const findOne = async (table, id) => {
 }
 
 /**
- * 
+ * Delete multiple documents from match
  * @param {*} table Name of the collection
  * @param {*} match JSON match query
- * @returns 
+ * @returns Object
  */
 const remove = async (table, match) => {
     return new Promise(async resolve => {
@@ -85,10 +83,10 @@ const remove = async (table, match) => {
 }
 
 /**
- * 
+ * Delete a document based of match
  * @param {*} table Name of the collection
  * @param {*} match JSON match query
- * @returns 
+ * @returns Object
  */
 const removeOne = async (table, match) => {
     return new Promise(async resolve => {
